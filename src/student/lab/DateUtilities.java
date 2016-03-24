@@ -84,10 +84,7 @@ public class DateUtilities {
     
     public int getDateDiff(LocalDate firstDate, LocalDate secondDate, DateUnit dateUnit)
             throws IllegalArgumentException {
-    // Convert Calendars to LocalDateTime objects
-        LocalDateTime startDate = LocalDateTime.ofInstant(firstDate., ZoneId.systemDefault());
-        LocalDateTime endDate = LocalDateTime.ofInstant(secondDate, ZoneId.systemDefault());
-        Duration diff = Duration.between(startDate, endDate);
+        Duration diff = Duration.between(firstDate, secondDate);
         int value;
         switch (dateUnit) {
             case DAY:
