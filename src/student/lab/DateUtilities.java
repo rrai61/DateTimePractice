@@ -66,8 +66,8 @@ public class DateUtilities {
     
     public String toString(LocalDate date, String pattern) throws IllegalArgumentException {
         String stringDate = null;  
-        DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM);
-        stringDate = formatter.format(date, pattern);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
+        stringDate = formatter.format(date);
         return stringDate;
     }
     
