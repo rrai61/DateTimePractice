@@ -114,11 +114,24 @@ public class DateUtilities {
         DateUtilities dateUtilities = DateUtilities.getInstance();        
         LocalDateTime firstDate = LocalDateTime.now();
         LocalDateTime secondDate = LocalDateTime.now().plusDays(5);
+        
         String fDate = dateUtilities.toString(firstDate);
         String sDate = dateUtilities.toString(secondDate);
         System.out.println("Local Date Time to String without pattern: " + fDate);
         System.out.println("Local Date Time to String without pattern: " + sDate);
-        int value = dateUtilities.getDateDiff(firstDate, secondDate, DateUnit.DAY);
-        System.out.println("Days between " + fDate + " and " + sDate + "is: " + value);
+        
+        String fDatePattern = dateUtilities.toString(firstDate, "M/d/yy h:mm:ss a");
+        String sDatePattern = dateUtilities.toString(secondDate, "MM/dd/yyyy hh:mm:ss");
+        System.out.println("Local Date Time to String with pattern: " + fDatePattern);
+        System.out.println("Local Date Time to String with pattern: " + sDatePattern);
+        
+        int dayValue = dateUtilities.getDateDiff(firstDate, secondDate, DateUnit.DAY);
+        System.out.println("Days between " + fDate + " and " + sDate + "is: " + dayValue);
+        int hourValue = dateUtilities.getDateDiff(firstDate, secondDate, DateUnit.HOUR);
+        System.out.println("Days between " + fDate + " and " + sDate + "is: " + hourValue);
+        int minuteValue = dateUtilities.getDateDiff(firstDate, secondDate, DateUnit.MINUTE);
+        System.out.println("Days between " + fDate + " and " + sDate + "is: " + minuteValue);
+        int secondValue = dateUtilities.getDateDiff(firstDate, secondDate, DateUnit.SECOND);
+        System.out.println("Days between " + fDate + " and " + sDate + "is: " + secondValue);
     }
 }
