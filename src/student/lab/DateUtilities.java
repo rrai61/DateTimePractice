@@ -82,11 +82,11 @@ public class DateUtilities {
         return date;
     }
     
-    public int getDateDiff(Calendar firstDate, Calendar secondDate, DateUnit dateUnit)
+    public int getDateDiff(LocalDate firstDate, LocalDate secondDate, DateUnit dateUnit)
             throws IllegalArgumentException {
     // Convert Calendars to LocalDateTime objects
-        LocalDateTime startDate = LocalDateTime.ofInstant(firstDate.toInstant(), ZoneId.systemDefault());
-        LocalDateTime endDate = LocalDateTime.ofInstant(secondDate.toInstant(), ZoneId.systemDefault());
+        LocalDateTime startDate = LocalDateTime.ofInstant(firstDate., ZoneId.systemDefault());
+        LocalDateTime endDate = LocalDateTime.ofInstant(secondDate, ZoneId.systemDefault());
         Duration diff = Duration.between(startDate, endDate);
         int value;
         switch (dateUnit) {
@@ -113,5 +113,15 @@ public class DateUtilities {
     }
      
     public static void main(String[] args) throws ParseException, IllegalArgumentException {
+        
+        DateUtilities dateUtilities = DateUtilities.getInstance();        
+        LocalDate firstDate = LocalDate.now();
+        LocalDate secondDate = LocalDate.now().plusDays(5);
+        String fDate = dateUtilities.toString(firstDate);
+        String sDate = dateUtilities.toString(secondDate);
+        System.out.println("Local Date to String without pattern: " + fDate);
+        System.out.println("Local Date to String without pattern: " + sDate);
+        int value = dateUtilities.getDateDiff(firstDate, secondDate, DateUnit.DAY);
+        System.out.println("Days between " + fDate + " and " + sDate + "is: " + value);
     }
 }
