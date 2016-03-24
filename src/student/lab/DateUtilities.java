@@ -57,32 +57,32 @@ public class DateUtilities {
         return instance;
     }
     
-    public String toString(LocalDate date) throws IllegalArgumentException {
+    public String toString(LocalDateTime date) throws IllegalArgumentException {
         String stringDate = null;  
         DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM);
         stringDate = formatter.format(date);
         return stringDate;
     }
     
-    public String toString(LocalDate date, String pattern) throws IllegalArgumentException {
+    public String toString(LocalDateTime date, String pattern) throws IllegalArgumentException {
         String stringDate = null;  
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
         stringDate = formatter.format(date);
         return stringDate;
     }
     
-    public LocalDate toDate(String dateString, String pattern) throws IllegalArgumentException{
+    public LocalDateTime toDate(String dateString, String pattern) throws IllegalArgumentException{
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
-        LocalDate date = LocalDate.parse(dateString, formatter);
+        LocalDateTime date = LocalDateTime.parse(dateString, formatter);
         return date;
     }
     
-    public LocalDate toDate(String dateString) throws IllegalArgumentException {
-        LocalDate date = LocalDate.parse(dateString);
+    public LocalDateTime toDate(String dateString) throws IllegalArgumentException {
+        LocalDateTime date = LocalDateTime.parse(dateString);
         return date;
     }
     
-    public int getDateDiff(LocalDate firstDate, LocalDate secondDate, DateUnit dateUnit)
+    public int getDateDiff(LocalDateTime firstDate, LocalDateTime secondDate, DateUnit dateUnit)
             throws IllegalArgumentException {
         Duration diff = Duration.between(firstDate, secondDate);
         int value;
@@ -112,12 +112,12 @@ public class DateUtilities {
     public static void main(String[] args) throws ParseException, IllegalArgumentException {
         
         DateUtilities dateUtilities = DateUtilities.getInstance();        
-        LocalDate firstDate = LocalDate.now();
-        LocalDate secondDate = LocalDate.now().plusDays(5);
+        LocalDateTime firstDate = LocalDateTime.now();
+        LocalDateTime secondDate = LocalDateTime.now().plusDays(5);
         String fDate = dateUtilities.toString(firstDate);
         String sDate = dateUtilities.toString(secondDate);
-        System.out.println("Local Date to String without pattern: " + fDate);
-        System.out.println("Local Date to String without pattern: " + sDate);
+        System.out.println("Local Date Time to String without pattern: " + fDate);
+        System.out.println("Local Date Time to String without pattern: " + sDate);
         int value = dateUtilities.getDateDiff(firstDate, secondDate, DateUnit.DAY);
         System.out.println("Days between " + fDate + " and " + sDate + "is: " + value);
     }
