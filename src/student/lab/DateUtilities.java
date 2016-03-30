@@ -26,7 +26,7 @@ public class DateUtilities {
     private static DateUtilities instance;
     
     public enum DateUnit {
-
+        
         DAY(1000L * 60L * 60L * 24L),
         HOUR(1000L * 60L * 60L),
         MINUTE(1000L * 60L),
@@ -89,6 +89,8 @@ public class DateUtilities {
      *
      * @param date - a <code>LocalDateTime</code> object
      * @param pattern - a <code>DateTimeFormatter</code> date/time pattern
+     * For example:"MM/dd/yyyy hh:mm:ss"
+     * @see <a href="http://joda-time.sourceforge.net/api-release/org/joda/time/format/DateTimeFormat.html"></a>
      * @return a date formatted to a String according to the specified pattern
      * @throws IllegalArgumentException if date is null or pattern not recognized
      */
@@ -104,8 +106,10 @@ public class DateUtilities {
      *
      * @param dateString - a CharSequence that must follow ISO-8601 LocalDateTime format
      * For example: 2007-12-03T10:15:30
-     * @param pattern - a <code>DateTimeFormatter</code> date/time pattern
-     * For example:
+     * @see <a href="https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html#ISO_LOCAL_DATE_TIME"></a>
+     * @param pattern - a <code>DateTimeFormatter</code> date/time pattern 
+     * For example:"MM/dd/yyyy hh:mm:ss"
+     * @see <a href="http://joda-time.sourceforge.net/api-release/org/joda/time/format/DateTimeFormat.html"></a>
      * @return a date according to the specified pattern
      * @throws IllegalArgumentException if dateString is null or pattern not recognized
      */
@@ -120,6 +124,7 @@ public class DateUtilities {
      *
      * @param dateString - a CharSequence that must follow ISO-8601 LocalDateTime format
      * For example: 2007-12-03T10:15:30
+     * @see <a href="https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html#ISO_LOCAL_DATE_TIME"></a>
      * @return a date according to the default pattern
      * @throws IllegalArgumentException if dateString is null or pattern not recognized
      */
