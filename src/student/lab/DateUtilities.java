@@ -18,6 +18,7 @@ import java.time.format.FormatStyle;
  * using the new Java Date/Time API (JDK 8). Fields are
  * provided for choice of units to be returned from date/time difference
  * calculations.
+ * 
  * @author ritu
  */
 public class DateUtilities {
